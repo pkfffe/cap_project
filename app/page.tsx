@@ -23,7 +23,7 @@ export default function Home() {
 
       {/* 상단 탭 메뉴 (게임소개 / 이벤트 소개 / 랭킹) */}
       <div className="w-4/5 bg-white flex justify-around py-3 mb-4 text-xl font-extrabold">
-        <button className="w-1/3 text-center bg-[#c8a878] py-2 hover:bg-[#d8c5a6]">게임소개</button>
+        <button className="w-1/3 text-center bg-[#eadbc1] py-2 hover:bg-[#d8c5a6]">게임소개</button>
         <button className="w-1/3 text-center bg-[#eadbc1] py-2 hover:bg-[#d8c5a6]">이벤트 소개</button>
         <button className="w-1/3 text-center bg-[#eadbc1] py-2 hover:bg-[#d8c5a6]">랭킹</button>
       </div>
