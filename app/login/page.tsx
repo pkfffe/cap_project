@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default function LoginPage() {
   return (
@@ -7,7 +7,10 @@ export default function LoginPage() {
         <h1 className="text-center text-2xl font-bold mb-6">로그인</h1>
         <form className="space-y-4">
           <div>
-            <label htmlFor="username" className="block text-lg font-medium mb-2">
+            <label
+              htmlFor="username"
+              className="block text-lg font-medium mb-2"
+            >
               아이디
             </label>
             <input
@@ -17,7 +20,10 @@ export default function LoginPage() {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-lg font-medium mb-2">
+            <label
+              htmlFor="password"
+              className="block text-lg font-medium mb-2"
+            >
               비밀번호
             </label>
             <input

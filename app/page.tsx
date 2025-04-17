@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 
-export default function Home() {
-  const [activeTab, setActiveTab] = useState<"game" | "event" | "rank">("game");
+import { useRouter } from "next/router";
+import {} from "react";
 
+export default function Home() {
+  const router = useRouter();
+  const [activeTab, setActiveTab] = useState<"game" | "event" | "rank">("game");
   return (
     <main className="min-h-screen bg-[#c39764] flex flex-col items-center">
       {/* 상단 바 */}
@@ -17,8 +20,15 @@ export default function Home() {
 
         {/* 우측: 로그인 / 회원가입 */}
         <div className="flex gap-2">
-          <button className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100">로그인</button>
-          <button className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100">회원가입</button>
+          <button
+            className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100"
+            onClick={() => router.push("/login")}
+          >
+            로그인
+          </button>
+          <button className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100">
+            회원가입
+          </button>
         </div>
       </div>
 
@@ -27,12 +37,19 @@ export default function Home() {
 
       {/* 상단 탭 메뉴 */}
       <div className="w-4/5 bg-white flex justify-around py-3 mb-4 text-xl font-extrabold">
-        <button
-          className={`w-1/3 text-center py-2 ${
-            activeTab === "game" ? "bg-[#c8a878]" : "bg-[#eadbc1]"
-          } hover:bg-[#b28e5d]`}
-          onClick={() => setActiveTab("game")}
-        >
+        <button className="w-1/3 text-center bg-[#c8a878] py-2 hover:bg-[#b28e5d]">
+          게임소개
+        </button>
+        <button className="w-1/3 text-center bg-[#eadbc1] py-2 hover:bg-[#d8c5a6]">
+          이벤트 소개
+        </button>
+        <button className="w-1/3 text-center bg-[#eadbc1] py-2 hover:bg-[#d8c5a6]">
+          <button
+            className={`w-1/3 text-center py-2 ${
+              activeTab === "game" ? "bg-[#c8a878]" : "bg-[#eadbc1]"
+            } hover:bg-[#b28e5d]`}
+            onClick={() => setActiveTab("game")}
+          />
           게임소개
         </button>
         <button
@@ -58,19 +75,25 @@ export default function Home() {
         {activeTab === "game" && (
           <>
             <div className="bg-white w-4/5 h-64 mb-4 rounded-lg shadow" />
-            <p className="text-sm font-semibold text-black">🎮 여기는 게임 소개글입니다!</p>
+            <p className="text-sm font-semibold text-black">
+              🎮 여기는 게임 소개글입니다!
+            </p>
           </>
         )}
         {activeTab === "event" && (
           <>
             <div className="bg-white w-4/5 h-64 mb-4 rounded-lg shadow" />
-            <p className="text-sm font-semibold text-black">📢 현재 진행 중인 이벤트 안내입니다!</p>
+            <p className="text-sm font-semibold text-black">
+              📢 현재 진행 중인 이벤트 안내입니다!
+            </p>
           </>
         )}
         {activeTab === "rank" && (
           <>
             <div className="bg-white w-4/5 h-64 mb-4 rounded-lg shadow" />
-            <p className="text-sm font-semibold text-black">🏆 랭킹 TOP 50 정보가 여기에 표시됩니다!</p>
+            <p className="text-sm font-semibold text-black">
+              🏆 랭킹 TOP 50 정보가 여기에 표시됩니다!
+            </p>
           </>
         )}
       </div>
