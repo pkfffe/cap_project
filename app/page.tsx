@@ -99,5 +99,3 @@ export default function Home() {
     </main>
   );
 }
-
-//<div> Choo Ga </div>
