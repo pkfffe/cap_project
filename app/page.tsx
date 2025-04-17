@@ -70,7 +70,7 @@ export default function Home() {
         {activeTab === "rank" && (
           <>
             <div className="bg-white w-4/5 h-64 mb-4 rounded-lg shadow" />
-            <p className="text-sm font-semibold text-black">🏆 랭킹 TOP 10 정보가 여기에 표시됩니다!</p>
+            <p className="text-sm font-semibold text-black">🏆 랭킹 TOP 50 정보가 여기에 표시됩니다!</p>
           </>
         )}
       </div>
