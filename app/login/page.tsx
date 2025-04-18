@@ -1,11 +1,21 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const router = useRouter();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const handleSignupClick = () => {
     router.push("/signup"); // Next.js 방식의 라우팅
+  };
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (username === "123" && password === "123") {
+      router.push("/main");
+    } else {
+      alert("아이디 또는 비밀번호가 틀렸습니다.");
+    }
   };
 
   return (
@@ -25,13 +35,15 @@ export default function LoginPage() {
             <input
               type="text"
               id="username"
-              className="w-full border border-gray-50 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d]
-               bg-white"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full border border-gray-50 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d] bg-white"
             />
           </div>
           <div>
             <label
               htmlFor="password"
+              id="password"
               className="block text-lg font-medium mb-2 text-black"
             >
               비밀번호
@@ -39,6 +51,8 @@ export default function LoginPage() {
             <input
               type="password"
               id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d] bg-white"
             />
           </div>
