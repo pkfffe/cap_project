@@ -20,13 +20,13 @@ export default function Home() {
         {/* 우측: 로그인 / 회원가입 */}
         <div className="flex gap-2">
           <button
-            className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100"
+            className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100 text-black"
             onClick={() => router.push("/login")}
           >
             로그인
           </button>
           <button
-            className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100"
+            className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100 text-black"
             onClick={() => router.push("/signup")} // 🔥 요기 추가!
           >
             회원가입
@@ -49,7 +49,7 @@ export default function Home() {
         </button>
         <button
           className={`w-1/3 text-center py-2 ${
-            activeTab === "event" ? "bg-[#c8a878]" : "bg-[#eadbc1]"
+            activeTab === "event" ? "bg-[#c8a878]" : "bg-[#eadbc1] text-black"
           } hover:bg-[#b28e5d]`}
           onClick={() => setActiveTab("event")}
         >
@@ -57,7 +57,7 @@ export default function Home() {
         </button>
         <button
           className={`w-1/3 text-center py-2 ${
-            activeTab === "rank" ? "bg-[#c8a878]" : "bg-[#eadbc1]"
+            activeTab === "rank" ? "bg-[#c8a878]" : "bg-[#eadbc1] text-black"
           } hover:bg-[#b28e5d]`}
           onClick={() => setActiveTab("rank")}
         >

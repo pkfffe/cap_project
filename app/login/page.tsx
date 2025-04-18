@@ -6,11 +6,14 @@ export default function LoginPage() {
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const handleSignupClick = () => {
-    router.push("/signup"); // Next.js 방식의 라우팅
+    router.push("/signup");
   };
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
+
     if (username === "123" && password === "123") {
       router.push("/main");
     } else {
@@ -24,7 +27,8 @@ export default function LoginPage() {
         <h1 className="text-center text-2xl font-bold mb-6 text-black">
           로그인
         </h1>
-        <form className="space-y-4">
+
+        <form className="space-y-4" onSubmit={handleLogin}>
           <div>
             <label
               htmlFor="username"
@@ -37,13 +41,12 @@ export default function LoginPage() {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full border border-gray-50 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d] bg-white"
+              className="w-full border border-gray-50 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d] bg-white text-black"
             />
           </div>
           <div>
             <label
               htmlFor="password"
-              id="password"
               className="block text-lg font-medium mb-2 text-black"
             >
               비밀번호
@@ -53,9 +56,10 @@ export default function LoginPage() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d] bg-white"
+              className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d] bg-white text-black"
             />
           </div>
+
           <div className="flex justify-end">
             <button
               type="button"
@@ -65,6 +69,7 @@ export default function LoginPage() {
               회원가입
             </button>
           </div>
+
           <button
             type="submit"
             className="w-full bg-black text-white text-lg font-bold py-2 rounded-lg hover:bg-gray-800"
