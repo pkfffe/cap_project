@@ -1,6 +1,13 @@
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
+  const handleSignupClick = () => {
+    router.push("/signup"); // Next.js 방식의 라우팅
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#c69c6d]">
       <div className="bg-[#e8d7c3] p-8 rounded-xl shadow-lg w-[400px]">
@@ -35,10 +42,14 @@ export default function LoginPage() {
               className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d] bg-white"
             />
           </div>
-          <div className="text-right">
-            <a href="#" className="text-sm text-gray-600 hover:underline">
+          <div className="flex justify-end">
+            <button
+              type="button"
+              onClick={handleSignupClick}
+              className="text-sm text-black hover:text-gray-600 font-medium"
+            >
               회원가입
-            </a>
+            </button>
           </div>
           <button
             type="submit"
