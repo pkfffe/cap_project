@@ -32,7 +32,7 @@ export default function LoginPage() {
             <input
               type="password"
               id="password"
-              className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d]"
+              className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d] bg-white"
             />
           </div>
           <div className="text-right">
