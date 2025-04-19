@@ -8,7 +8,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<"game" | "event" | "rank">("game");
 
   return (
-    <main className="min-h-screen bg-[#c39764] flex flex-col items-center">
+    <main className="min-h-screen bg-[#c69c6d] flex flex-col items-center">
       {/* 상단 바 */}
       <div className="w-full flex justify-between items-center px-6 py-4">
         {/* 좌측: 닉네임 */}
