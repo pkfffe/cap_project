@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Home() {
   const router = useRouter();
@@ -14,7 +15,7 @@ export default function Home() {
         {/* 좌측: 닉네임 */}
         <div className="flex items-center gap-2 bg-white px-3 py-1 rounded">
           <span className="text-xl">👤</span>
-          <span className="text-sm font-semibold">닉네임</span>
+          <span className="text-sm font-semibold text-black">닉네임</span>
         </div>
 
         {/* 우측: 로그인 / 회원가입 */}
@@ -38,27 +39,27 @@ export default function Home() {
       <div className="w-32 h-32 bg-white rounded-full my-4" />
 
       {/* 상단 탭 메뉴 */}
-      <div className="w-4/5 bg-white flex justify-around py-3 mb-4 text-xl font-extrabold">
+      <div className="w-4/5 bg-white flex justify-between gap-2 px-4 py-3 -mb-6 z-10 relative rounded-t-xl shadow-lg">
         <button
-          className={`w-1/3 text-center py-2 ${
+          className={`flex-1 py-2 ${
             activeTab === "game" ? "bg-[#c8a878]" : "bg-[#eadbc1]"
-          } hover:bg-[#b28e5d]`}
+          } hover:bg-[#b28e5d] rounded font-extrabold text-xl text-black`}
           onClick={() => setActiveTab("game")}
         >
           게임소개
         </button>
         <button
-          className={`w-1/3 text-center py-2 ${
-            activeTab === "event" ? "bg-[#c8a878]" : "bg-[#eadbc1] text-black"
-          } hover:bg-[#b28e5d]`}
+          className={`flex-1 py-2 ${
+            activeTab === "event" ? "bg-[#c8a878]" : "bg-[#eadbc1]"
+          } hover:bg-[#b28e5d] rounded font-extrabold text-xl text-black`}
           onClick={() => setActiveTab("event")}
         >
           이벤트 소개
         </button>
         <button
-          className={`w-1/3 text-center py-2 ${
-            activeTab === "rank" ? "bg-[#c8a878]" : "bg-[#eadbc1] text-black"
-          } hover:bg-[#b28e5d]`}
+          className={`flex-1 py-2 ${
+            activeTab === "rank" ? "bg-[#c8a878]" : "bg-[#eadbc1]"
+          } hover:bg-[#b28e5d] rounded font-extrabold text-xl text-black`}
           onClick={() => setActiveTab("rank")}
         >
           랭킹
@@ -66,10 +67,10 @@ export default function Home() {
       </div>
 
       {/* 본문 콘텐츠 영역 */}
-      <div className="w-4/5 bg-[#dac2a0] flex flex-col items-center py-6 px-4 rounded-lg shadow min-h-[300px]">
+      <div className="w-4/5 bg-[#dac2a0] flex flex-col items-center py-10 rounded-xl shadow min-h-[300px] z-0">
         {activeTab === "game" && (
           <>
-            <div className="bg-white w-4/5 h-64 mb-4 rounded-lg shadow" />
+            <div className="bg-white w-9/10 h-[800px] mb-6 rounded-xl shadow-lg" />
             <p className="text-sm font-semibold text-black">
               🎮 여기는 게임 소개글입니다!
             </p>
@@ -77,7 +78,7 @@ export default function Home() {
         )}
         {activeTab === "event" && (
           <>
-            <div className="bg-white w-4/5 h-64 mb-4 rounded-lg shadow" />
+            <div className="bg-white w-9/10 h-[800px] mb-6 rounded-xl shadow-lg" />
             <p className="text-sm font-semibold text-black">
               📢 현재 진행 중인 이벤트 안내입니다!
             </p>
@@ -85,7 +86,7 @@ export default function Home() {
         )}
         {activeTab === "rank" && (
           <>
-            <div className="bg-white w-4/5 h-64 mb-4 rounded-lg shadow" />
+            <div className="bg-white w-9/10 h-[800px] mb-6 rounded-xl shadow-lg" />
             <p className="text-sm font-semibold text-black">
               🏆 랭킹 TOP 50 정보가 여기에 표시됩니다!
             </p>
