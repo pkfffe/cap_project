@@ -1,5 +1,5 @@
 "use client";
-
+import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -10,7 +10,7 @@ export default function SignUpPage() {
   const [nickname, setNickName] = useState("");
   const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // 비밀번호 확인
@@ -19,18 +19,18 @@ export default function SignUpPage() {
       return;
     }
 
-    // 아이디 & 닉네임이 123일 때만 회원가입 성공 처리
-    if (
-      username === "123" &&
-      nickname === "123" &&
-      password === passwordcheck
-    ) {
-      alert("회원가입 완료!");
-      setTimeout(() => {
-        router.push("/main");
+    try {
+      const response = await axios.post("http://localhost:5000/register", {
+        userid: username,
+        password: password,
+        nickname: nickname,
       });
-    } else {
-      alert("입력 오류! 다시 시도하세요.");
+
+      alert(response.data.message); // "회원가입 성공" 메시지
+      router.push("/main");
+    } catch (error: any) {
+      const msg = error.response?.data?.message || "회원가입 실패";
+      alert(msg);
     }
   };
 
