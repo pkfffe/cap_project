@@ -17,20 +17,18 @@ export default function LoginPage() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/login", {
-        userid: username,
-        password,
-      });
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/login`,
+        {
+          userid: username,
+          password,
+        }
+      );
 
-      // ✅ 로그인 성공 처리
       const { message, nickname, token } = response.data;
-      alert(message); // "로그인 성공!" 등
-
-      // ✅ localStorage에 토큰과 닉네임 저장
+      alert(message);
       localStorage.setItem("token", token);
       localStorage.setItem("nickname", nickname);
-
-      // ✅ 메인 페이지로 이동
       router.push("/main");
     } catch (error: any) {
       const message = error.response?.data?.message || "로그인 실패";
