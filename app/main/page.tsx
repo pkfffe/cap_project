@@ -78,7 +78,7 @@ export default function Home() {
       </div>
 
       {/* 중앙 원형 이미지 */}
-      <div className="w-60 h-60 py-10 relative rounded-full overflow-hidden">
+      <div className="w-60 h-60 y-10 relative rounded-full overflow-hidden">
         <Image src="/rogo.png" alt="Logo" fill className="object-cover" />
       </div>
 
@@ -111,7 +111,6 @@ export default function Home() {
       </div>
 
       {/* 본문 콘텐츠 영역 */}
-      {/* 본문 콘텐츠 영역 */}
       <div className="w-4/5 bg-[#dac2a0] flex flex-col items-center py-10 rounded-xl shadow min-h-[300px] z-0">
         {activeTab === "game" && (
           <div className="bg-white w-11/12 p-6 rounded-xl shadow-lg mb-6 text-black">
@@ -136,7 +135,6 @@ export default function Home() {
             </ul>
           </div>
         )}
-
         {activeTab === "rank" && (
           <div className="bg-white w-11/12 p-6 rounded-xl shadow-lg mb-6 text-black">
             <h2 className="text-2xl font-bold mb-4">🏆 랭킹</h2>
