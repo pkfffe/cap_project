@@ -109,7 +109,6 @@ export default function Home() {
       </div>
 
       {/* 본문 콘텐츠 영역 */}
-      {/* 본문 콘텐츠 영역 */}
 <div className="w-4/5 bg-[#dac2a0] flex flex-col items-center py-10 rounded-xl shadow min-h-[300px] z-0">
   {activeTab === "game" && (
     <div className="bg-white w-11/12 p-6 rounded-xl shadow-lg mb-6 text-black">
