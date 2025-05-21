@@ -21,28 +21,59 @@ export default function Home() {
     <main className="min-h-screen bg-[#c69c6d] flex flex-col items-center">
       {/* 상단 바 */}
       <div className="w-full flex justify-between items-center px-6 py-4">
-        {/* 좌측: 닉네임 */}
+        {/* 좌측: 닉네임 또는 로그인 메시지 */}
         <div className="flex items-center gap-2 bg-white px-3 py-1 rounded">
-          <span className="text-xl"></span>
-          <span className="text-sm font-semibold text-black">
-            {nickname || "로그인해주세요"}
-          </span>
+          {nickname ? (
+            <>
+              <Image
+                src="/profile.png" // 원하는 아이콘 경로로 변경
+                alt="Profile"
+                width={24}
+                height={24}
+                className="rounded-full"
+              />
+              <div className="w-[0.1px] h-[20px] mx-0.5 border-1 border-neutral-500 shadow-2xl"></div>
+              <span className="text-sm font-semibold text-black">
+                {nickname}
+              </span>
+            </>
+          ) : (
+            <span className="text-sm font-semibold text-black">
+              로그인해주세요
+            </span>
+          )}
         </div>
 
-        {/* 우측: 로그인 / 회원가입 */}
+        {/* 우측: 로그인 / 회원가입 또는 로그아웃 */}
         <div className="flex gap-2">
-          <button
-            className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100 text-black"
-            onClick={() => router.push("/login")}
-          >
-            로그인
-          </button>
-          <button
-            className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100 text-black"
-            onClick={() => router.push("/signup")}
-          >
-            회원가입
-          </button>
+          {nickname ? (
+            <button
+              className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100 text-black"
+              onClick={() => {
+                localStorage.removeItem("nickname");
+                setNickname("");
+                alert("로그아웃 성공!");
+                router.refresh();
+              }}
+            >
+              로그아웃
+            </button>
+          ) : (
+            <>
+              <button
+                className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100 text-black"
+                onClick={() => router.push("/login")}
+              >
+                로그인
+              </button>
+              <button
+                className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100 text-black"
+                onClick={() => router.push("/signup")}
+              >
+                회원가입
+              </button>
+            </>
+          )}
         </div>
       </div>
 

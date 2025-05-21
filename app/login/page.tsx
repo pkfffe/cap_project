@@ -1,4 +1,5 @@
 "use client";
+
 import axios from "axios";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -7,6 +8,7 @@ export default function LoginPage() {
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const handleSignupClick = () => {
     router.push("/signup");
   };
@@ -20,10 +22,15 @@ export default function LoginPage() {
         password,
       });
 
-      alert(response.data.message); // "로그인 성공!"
-      // ✅ 닉네임 저장 (localStorage 사용)
-      localStorage.setItem("nickname", response.data.nickname);
+      // ✅ 로그인 성공 처리
+      const { message, nickname, token } = response.data;
+      alert(message); // "로그인 성공!" 등
 
+      // ✅ localStorage에 토큰과 닉네임 저장
+      localStorage.setItem("token", token);
+      localStorage.setItem("nickname", nickname);
+
+      // ✅ 메인 페이지로 이동
       router.push("/main");
     } catch (error: any) {
       const message = error.response?.data?.message || "로그인 실패";
@@ -52,8 +59,10 @@ export default function LoginPage() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               className="w-full border border-gray-50 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d] bg-white text-black"
+              required
             />
           </div>
+
           <div>
             <label
               htmlFor="password"
@@ -67,6 +76,7 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring focus:ring-[#c69c6d] bg-white text-black"
+              required
             />
           </div>
 
