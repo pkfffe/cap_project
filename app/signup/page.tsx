@@ -114,7 +114,7 @@ export default function SignUpPage() {
             </div>
           </div>
 
-          {/* 닉네임 */}
+          {/*-닉네임-*/}
           <div className="mb-10">
             <label
               htmlFor="nickname"
