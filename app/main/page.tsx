@@ -1,12 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function Home() {
   const router = useRouter();
+  const [nickname, setNickname] = useState("");
   const [activeTab, setActiveTab] = useState<"game" | "event" | "rank">("game");
+
+  // ✅ localStorage에서 닉네임 읽기
+  useEffect(() => {
+    const savedNickname = localStorage.getItem("nickname");
+    if (savedNickname) {
+      setNickname(savedNickname);
+    }
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#c69c6d] flex flex-col items-center">
@@ -14,8 +23,10 @@ export default function Home() {
       <div className="w-full flex justify-between items-center px-6 py-4">
         {/* 좌측: 닉네임 */}
         <div className="flex items-center gap-2 bg-white px-3 py-1 rounded">
-          <span className="text-xl">👤</span>
-          <span className="text-sm font-semibold text-black">닉네임</span>
+          <span className="text-xl"></span>
+          <span className="text-sm font-semibold text-black">
+            {nickname || "로그인해주세요"}
+          </span>
         </div>
 
         {/* 우측: 로그인 / 회원가입 */}
@@ -28,7 +39,7 @@ export default function Home() {
           </button>
           <button
             className="bg-white px-3 py-1 text-sm font-bold rounded hover:bg-gray-100 text-black"
-            onClick={() => router.push("/signup")} // 🔥 요기 추가!
+            onClick={() => router.push("/signup")}
           >
             회원가입
           </button>

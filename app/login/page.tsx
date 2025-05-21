@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -6,18 +7,27 @@ export default function LoginPage() {
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const handleSignupClick = () => {
     router.push("/signup");
   };
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (username === "123" && password === "123") {
+    try {
+      const response = await axios.post("http://localhost:5000/login", {
+        userid: username,
+        password,
+      });
+
+      alert(response.data.message); // "로그인 성공!"
+      // ✅ 닉네임 저장 (localStorage 사용)
+      localStorage.setItem("nickname", response.data.nickname);
+
       router.push("/main");
-    } else {
-      alert("아이디 또는 비밀번호가 틀렸습니다.");
+    } catch (error: any) {
+      const message = error.response?.data?.message || "로그인 실패";
+      alert(message);
     }
   };
 
