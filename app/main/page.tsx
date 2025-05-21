@@ -109,32 +109,44 @@ export default function Home() {
       </div>
 
       {/* 본문 콘텐츠 영역 */}
-      <div className="w-4/5 bg-[#dac2a0] flex flex-col items-center py-10 rounded-xl shadow min-h-[300px] z-0">
-        {activeTab === "game" && (
-          <>
-            <div className="bg-white w-9/10 h-[800px] mb-6 rounded-xl shadow-lg" />
-            <p className="text-sm font-semibold text-black">
-              🎮 여기는 게임 소개글입니다!
-            </p>
-          </>
-        )}
-        {activeTab === "event" && (
-          <>
-            <div className="bg-white w-9/10 h-[800px] mb-6 rounded-xl shadow-lg" />
-            <p className="text-sm font-semibold text-black">
-              📢 현재 진행 중인 이벤트 안내입니다!
-            </p>
-          </>
-        )}
-        {activeTab === "rank" && (
-          <>
-            <div className="bg-white w-9/10 h-[800px] mb-6 rounded-xl shadow-lg" />
-            <p className="text-sm font-semibold text-black">
-              🏆 랭킹 TOP 50 정보가 여기에 표시됩니다!
-            </p>
-          </>
-        )}
-      </div>
+      {/* 본문 콘텐츠 영역 */}
+<div className="w-4/5 bg-[#dac2a0] flex flex-col items-center py-10 rounded-xl shadow min-h-[300px] z-0">
+  {activeTab === "game" && (
+    <div className="bg-white w-11/12 p-6 rounded-xl shadow-lg mb-6 text-black">
+      <h2 className="text-2xl font-bold mb-4">게임 소개</h2>
+      <p className="text-lg mb-2">
+        본 게임은 싱글플레이 스테이지 클리어 방식의 캐주얼 슈팅 게임입니다.
+      </p>
+      <p className="text-sm">
+        적을 처치하고 점수를 쌓아 랭킹에 도전해보세요!
+      </p>
+    </div>
+  )}
+
+  {activeTab === "event" && (
+    <div className="bg-white w-11/12 p-6 rounded-xl shadow-lg mb-6 text-black">
+      <h2 className="text-2xl font-bold mb-4">이벤트 소개</h2>
+      <ul className="list-disc pl-5 space-y-2">
+        <li>🔥 스테이지 3 클리어 시 추첨 이벤트 참여</li>
+        <li>💎 상위 10명 리워드 지급</li>
+        <li>⏰ 기간: 2025.06.01 ~ 2025.06.30</li>
+      </ul>
+    </div>
+  )}
+
+  {activeTab === "rank" && (
+    <div className="bg-white w-11/12 p-6 rounded-xl shadow-lg mb-6 text-black">
+      <h2 className="text-2xl font-bold mb-4">🏆 랭킹</h2>
+      <p className="mb-2">현재 가장 높은 점수를 기록한 유저 TOP 3:</p>
+      <ol className="list-decimal pl-5 space-y-1">
+        <li>🥇 닉네임: Legend - 999999점</li>
+        <li>🥈 닉네임: ProShooter - 854320점</li>
+        <li>🥉 닉네임: FastHand - 782150점</li>
+      </ol>
+    </div>
+  )}
+</div>
+
     </main>
   );
 }
