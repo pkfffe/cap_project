@@ -50,14 +50,33 @@ export default function Home() {
     if (savedNickname) setNickname(savedNickname);
   }, []);
 
-  const handleAddEvent = () => {
-    if (!newEvent.title || !newEvent.description || !newEvent.image) return;
+  const handleAddEvent = async () => {
+    if (!newEvent.title || !newEvent.description || !newEvent.image) {
+      alert("모든 필드를 입력해주세요.");
+      return;
+    }
 
-    const nextId = eventList.length + 1;
-    const newPost: EventPost = { ...newEvent, id: nextId };
-    setEventList([newPost, ...eventList]);
-    setViewMode("list");
-    setNewEvent({ title: "", description: "", image: "", date: "" });
+    try {
+      const response = await fetch("http://localhost:4000/api/events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newEvent),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        setEventList([result, ...eventList]);
+        setViewMode("list");
+        setNewEvent({ title: "", description: "", image: "", date: "" });
+      } else {
+        alert("이벤트 등록 실패");
+      }
+    } catch (error) {
+      console.error("등록 중 에러:", error);
+      alert("서버와 연결할 수 없습니다.");
+    }
   };
 
   return (
@@ -160,7 +179,7 @@ export default function Home() {
         )}
 
         {activeTab === "event" && (
-          <div className="bg-white w-11/12 p-6 rounded-xl shadow-lg text-black w-full">
+          <div className="bg-white w-11/12 p-6 rounded-xl shadow-lg text-black">
             <h2 className="text-2xl font-bold mb-4">📢 이벤트</h2>
 
             {/* 작성 버튼 */}
