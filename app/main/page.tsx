@@ -24,14 +24,14 @@ export default function Home() {
   const [eventList, setEventList] = useState<EventPost[]>([
     {
       id: 1,
-      title: "치킨트럭을 찾아라!",
-      description: "캠퍼스 축제 치킨 드림! 행사에서 치킨트럭을 찾아보세요!",
+      title: "6단계까지 진출하고 치킨 받자!",
+      description: "6단계까지 무사 진출하고 치킨 기프티콘을 받아보세요!",
       image: "/uploads/event1.jpg",
       date: "2025.05.22 ~ 2025.06.08",
     },
     {
       id: 2,
-      title: "5월 출석 이벤트",
+      title: "6월 출석 이벤트",
       description: "매일 접속하고 보상을 획득하세요!",
       image: "/uploads/event2.jpg",
       date: "2025.05.14 ~ 2025.06.15",
