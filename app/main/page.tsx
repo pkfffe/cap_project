@@ -124,34 +124,70 @@ export default function Home() {
       <div className="w-4/5 bg-[#dac2a0] flex flex-col items-center py-10 rounded-xl shadow min-h-[300px] z-0">
         {/* 게임 소개 */}
         {activeTab === "game" && (
-          <div className="bg-white w-11/12 p-8 rounded-2xl shadow-2xl mb-6 text-black space-y-4">
-            <h2 className="text-3xl font-extrabold flex items-center gap-2">
-              🎮 게임 소개
-            </h2>
-            <p className="text-lg leading-relaxed">
-              본 게임은 싱글플레이{" "}
-              <span className="font-semibold text-[#b28e5d]">
-                스테이지 클리어 방식
-              </span>
-              의 <br />
-              <span className="font-semibold text-[#b28e5d]">
-                캐주얼 슈팅 게임
-              </span>
-              입니다.
-            </p>
-            <p className="text-base text-gray-700">
-              몰려오는 적을 처치하고 점수를 쌓아<br />
-              <span className="font-semibold">랭킹에 도전</span>해 보세요!
-            </p>
-            <div className="flex justify-center mt-4">
-              <img
-                src="/gamepreview.png"
-                alt="게임 미리보기"
-                className="w-full max-w-md rounded-xl shadow-md object-cover"
-              />
-            </div>
-          </div>
-        )}
+  <div className="bg-white w-full max-w-5xl px-6 py-12 rounded-2xl shadow-2xl mb-6 text-black space-y-16 overflow-y-auto">
+    {/* 헤더 */}
+    <div className="space-y-3">
+      <h2 className="text-4xl font-extrabold text-[#b28e5d] flex items-center gap-2">
+        🎮 게임 소개
+      </h2>
+      <p className="text-lg text-gray-700 leading-relaxed">
+        이 게임은 <span className="font-semibold text-[#b28e5d]">스테이지 클리어</span> 방식의
+        싱글플레이 캐주얼 슈팅 게임입니다.
+        <br />
+        몰려오는 적들을 처치하고, <span className="font-bold">점수</span>를 쌓아
+        <span className="font-bold"> 랭킹</span>을 겨뤄보세요!
+      </p>
+    </div>
+
+    {/* 메인 이미지 */}
+    <div className="rounded-xl overflow-hidden shadow-lg">
+      <img
+        src="/uploads/Main.png"
+        alt="메인 이미지"
+        className="w-full object-cover max-h-[500px]"
+      />
+    </div>
+
+    {/* 설명 2 */}
+    <div className="space-y-3 text-[17px] leading-relaxed text-gray-800">
+      <p>
+        게임은 마법 캐릭터를 조작하여 몰려오는 적을 물리치는 방식으로 진행됩니다.
+        <br />
+        점수는 처치한 적 수와 생존 시간에 따라 누적됩니다.
+      </p>
+      <p>
+        각 스테이지마다 새로운 패턴의 적이 등장하며, <br />
+        <span className="font-semibold text-[#b28e5d]">전략적 이동과 회피</span>가 매우 중요합니다.
+      </p>
+    </div>
+
+    {/* 서브 이미지 */}
+    <div className="rounded-xl overflow-hidden shadow-lg">
+      <img
+        src="/uploads/Sub.png"
+        alt="서브 이미지"
+        className="w-full object-cover max-h-[500px]"
+      />
+    </div>
+
+    {/* 스코어 & 시스템 설명 */}
+    <div className="space-y-3 text-[17px] leading-relaxed text-gray-800">
+      <p>
+        스코어 시스템은 누적 점수 기반으로, <span className="font-semibold">매주 랭킹 리셋</span>됩니다.
+      </p>
+      <p>
+        향후 멀티플레이 및 커스터마이징 기능도 업데이트될 예정입니다.
+        기대해주세요!
+      </p>
+    </div>
+
+    {/* 하단 정보 */}
+    <footer className="border-t pt-6 text-sm text-gray-500 text-center">
+      <p>ⓒ 2025 Team열정 Co., Ltd. All rights reserved.</p>
+      <p>팀명: Team열정 | 연락처: 010-8127-4416</p>
+    </footer>
+  </div>
+)}
 
         {/* 이벤트 소개 */}
         {activeTab === "event" && (
