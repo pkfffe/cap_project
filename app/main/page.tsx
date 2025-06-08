@@ -247,7 +247,7 @@ export default function Home() {
                 🏆 랭킹
               </h2>
               <span className="text-sm text-gray-500">
-                최고 점수를 기록한 유저들을 만나보세요
+                최고 점수를 기록한 유저들을 만나보세요!
               </span>
             </div>
 
