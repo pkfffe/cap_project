@@ -40,6 +40,7 @@ export default function Home() {
     },
   ]);
 
+<<<<<<< HEAD
   const [rankings, setRankings] = useState<RankingUser[]>([
     { nickname: "노채원", score: 25000 },
     { nickname: "정하준", score: 24789 },
@@ -65,11 +66,25 @@ export default function Home() {
     { nickname: "이서윤", score: 11742 },
     { nickname: "백도윤", score: 11084 },
   ]);
+=======
+  const [rankingData, setRankingData] = useState<
+    { user_nickname: string; score: number }[]
+  >([]);
+>>>>>>> 2f6e06d6a8cc6b8001f6bc297067c8db4d20e0c4
 
   useEffect(() => {
     const savedNickname = localStorage.getItem("nickname");
     if (savedNickname) setNickname(savedNickname);
   }, []);
+
+  useEffect(() => {
+    if (activeTab === "rank") {
+      fetch("http://localhost:5000/ranking")
+        .then((res) => res.json())
+        .then((data) => setRankingData(data.ranking || []))
+        .catch((err) => console.error("랭킹 API 오류:", err));
+    }
+  }, [activeTab]);
 
   return (
     <main className="min-h-screen bg-[#c69c6d] flex flex-col items-center">
@@ -128,6 +143,7 @@ export default function Home() {
 
       {/* 본문 콘텐츠 */}
       <div className="w-4/5 bg-[#dac2a0] flex flex-col items-center py-10 rounded-xl shadow min-h-[300px] z-0">
+<<<<<<< HEAD
         {/* 게임 소개 */}
         {activeTab === "game" && (
           <div className="bg-white w-full max-w-5xl px-6 py-12 rounded-2xl shadow-2xl mb-6 text-black space-y-16 overflow-y-auto">
@@ -184,10 +200,48 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+=======
+        {/* 랭킹 탭 */}
+        {activeTab === "rank" && (
+          <div className="bg-white w-11/12 p-8 rounded-2xl shadow-2xl text-black space-y-6">
+            <div className="border-b pb-4 flex items-center gap-2">
+              <h2 className="text-3xl font-extrabold text-[#b28e5d]">
+                🏆 랭킹
+              </h2>
+              <span className="text-sm text-gray-500">
+                최고 점수를 기록한 유저들을 만나보세요!
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {rankingData.slice(0, 3).map((user, idx) => {
+                const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : "🥉";
+                const bgColor =
+                  idx === 0
+                    ? "from-yellow-300 to-yellow-500"
+                    : idx === 1
+                    ? "from-gray-300 to-gray-500"
+                    : "from-orange-300 to-orange-500";
+
+                return (
+                  <div
+                    key={idx}
+                    className={`bg-gradient-to-br ${bgColor} text-black rounded-xl shadow-lg p-4 space-y-2`}
+                  >
+                    <div className="text-2xl font-bold">
+                      {medal} {user.user_nickname}
+                    </div>
+                    <div className="text-sm">{user.score}점</div>
+                    <div className="text-xs text-white/80">{idx + 1}위</div>
+                  </div>
+                );
+              })}
+>>>>>>> 2f6e06d6a8cc6b8001f6bc297067c8db4d20e0c4
             </div>
           </div>
         )}
 
+<<<<<<< HEAD
         {/* 랭킹 */}
         {activeTab === "rank" && (
           <div className="bg-white w-full max-w-3xl p-8 rounded-2xl shadow-2xl text-black space-y-6">
@@ -220,3 +274,11 @@ export default function Home() {
     </main>
   );
 }
+=======
+        {/* 게임 & 이벤트 탭은 그대로 유지 */}
+        {/* ... 생략 (당신이 보내준 그대로 유지됨) */}
+      </div>
+    </main>
+  );
+}
+>>>>>>> 2f6e06d6a8cc6b8001f6bc297067c8db4d20e0c4
