@@ -144,7 +144,7 @@ export default function Home() {
             </div>
 
             {/* 메인 이미지 */}
-            <div className="rounded-xl overflow-hidden shadow-lg">
+            <div className="rounded-xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
               <img
                 src="/uploads/Main.png"
                 alt="메인 이미지"
@@ -170,7 +170,7 @@ export default function Home() {
             </div>
 
             {/* 서브 이미지 */}
-            <div className="rounded-xl overflow-hidden shadow-lg">
+            <div className="rounded-xl overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
               <img
                 src="/uploads/Sub.png"
                 alt="서브 이미지"
@@ -183,10 +183,6 @@ export default function Home() {
               <p>
                 스코어 시스템은 누적 점수 기반으로,{" "}
                 <span className="font-semibold">매주 랭킹 리셋</span>됩니다.
-              </p>
-              <p>
-                향후 멀티플레이 및 커스터마이징 기능도 업데이트될 예정입니다.
-                기대해주세요!
               </p>
             </div>
 
