@@ -263,7 +263,7 @@ export default function Home() {
               {/* 3등 */}
               <div className="bg-gradient-to-br from-orange-300 to-orange-500 text-black rounded-xl shadow-lg p-4 space-y-2">
                 <div className="text-2xl font-bold">🥉 FastHand</div>
-                <div className="text-sm">782150점</div>
+                <div className="text-sm">782150점!</div>
                 <div className="text-xs text-white/80">3위</div>
               </div>
             </div>
