@@ -32,7 +32,7 @@ export default function Home() {
     const savedNickname = localStorage.getItem("nickname");
     if (savedNickname) setNickname(savedNickname);
   }, []);
-
+  console.log("✅ API 요청 URL:", process.env.NEXT_PUBLIC_API_URL);
   useEffect(() => {
     if (activeTab === "rank") {
       const fetchRanking = async () => {
